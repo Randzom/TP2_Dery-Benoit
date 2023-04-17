@@ -99,6 +99,7 @@ public class Server {
             String arg = parts.getValue();
             this.alertHandlers(cmd, arg);
         }
+        System.out.println("Received null");
     }
 
     /**
@@ -161,7 +162,7 @@ public class Server {
             }
             System.out.println(courseList);
             readCourses.close();
-            objectOutputStream.writeObject(courseList);
+            objectOutputStream.writeObject(courseList.toString());
             System.out.println("Liste de cours pour la session demandée a été envoyée");
         } catch (FileNotFoundException e) {
             System.out.println("Lecture du fichier impossible");

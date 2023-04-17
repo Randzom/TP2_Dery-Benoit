@@ -47,7 +47,7 @@ public class Client {
 
                 }
             scanner.close();
-                CommandObject command= new CommandObject("CHARGER", sessionChoisi);
+                String command = "CHARGER " + sessionChoisi;
                 System.out.println("Les cours offerts durant la session d'" + sessionChoisi + " sont:");
 
                 System.out.println("Ouverture Outputput");
@@ -55,7 +55,7 @@ public class Client {
                 System.out.println("Écriture");
                 objectOutputStream.writeObject(command);
                 System.out.println("Requête de la liste de cours envoyé");
-
+                System.out.println(command);
                 ArrayList<Course> courseList = (ArrayList<Course>) objectInputStream.readObject();
                 System.out.println("Cours reçu");
 
