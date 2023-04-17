@@ -98,6 +98,7 @@ public class Server {
             String cmd = parts.getKey();
             String arg = parts.getValue();
             this.alertHandlers(cmd, arg);
+            System.out.println(cmd +" commande et " + arg + " argument");
         }
         System.out.println("Received null");
     }
@@ -131,7 +132,7 @@ public class Server {
      */
     public void handleEvents(String cmd, String arg) {
         if (cmd.equals(REGISTER_COMMAND)) {
-            handleRegistration();
+            handleRegistration(arg);
         } else if (cmd.equals(LOAD_COMMAND)) {
             handleLoadCourses(arg);
         }
@@ -157,7 +158,7 @@ public class Server {
                 String name = line.split("\\t")[1];
                 String session = line.split("\\t")[2];
                 if (session.equals(arg)) {
-                    courseList.add(new Course(code, name, session));
+                    courseList.add(new Course(name, code, session));
                 }
             }
             scan.close();
@@ -175,31 +176,30 @@ public class Server {
      et renvoyer un message de confirmation au client.
      La méthode gére les exceptions si une erreur se produit lors de la lecture de l'objet, l'écriture dans un fichier ou dans le flux de sortie.
      */
-    public void handleRegistration() {
+    public void handleRegistration(String arg) {
         // TODO: implémenter cette méthode
         try {
-            RegistrationForm registrationForm = (RegistrationForm) objectInputStream.readObject();
-            String prenom = registrationForm.getPrenom();
-            String nom = registrationForm.getNom();
-            String email = registrationForm.getEmail();
-            String matricule = registrationForm.getMatricule();
-
-            Course course = registrationForm.getCourse();
-            String session = course.getSession();
-            String code = course.getCode();
+            System.out.println("Inscription en cours");
+            String prenom = arg.split(".")[0];
+            String nom = arg.split(".")[1];
+            String email = arg.split(".")[2];
+            String matricule = arg.split(".")[3];
+            String courseName = arg.split(".")[4];
+            String code = arg.split(".")[5];
+            String session = arg.split(".")[6];
 
             FileWriter registration = new FileWriter("server/data/inscription.txt");
             registration.write(session + " " + code + " " + matricule + "   " + prenom + " " + nom + " " + email);
             registration.close();
             System.out.println("Inscription enregistrée avec succès");
+            String confirmation = "Inscription réussite";
+            //objectOutputStream.writeObject(confirmation);
 
             // TODO: Il manque message de confirmation envoyé au client
             } catch (FileNotFoundException e) {
                 System.out.println("Impossible d'écrire dans le fichier (inscription.txt)");
             } catch (IOException e) {
             System.out.println("Erreur lors de la réception du formulaire");
-        } catch (ClassNotFoundException e) {
-            System.out.println("Erreur dans la lecture de l'objet (formulaire) reçu");
         }
 
     }

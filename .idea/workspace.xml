@@ -7,8 +7,6 @@
     <list default="true" id="21724437-db3b-48fb-8dd8-4dcb75189f2e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/model/Course.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/model/RegistrationForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/model/RegistrationForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
