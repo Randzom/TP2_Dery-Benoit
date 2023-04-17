@@ -147,25 +147,24 @@ public class Server {
     public void handleLoadCourses(String arg) {
         // TODO: implémenter cette méthode
         try {
-            File courses = new File("IFT1025-TP2-server-main/src/main/java/server/data/cours.txt");
-            FileReader readCourses = new FileReader(courses);
-            BufferedReader buffCourses = new BufferedReader(readCourses);
-            String line;
+            System.out.println("Read");
+            Scanner scan = new Scanner(new File("src/main/java/server/data/cours.txt"));
+            System.out.println("Success");
             ArrayList<Course> courseList = new ArrayList<Course>();
-            while ((line = buffCourses.readLine()) != null) {
-                String code = line.split(" ")[0];
-                String name = line.split(" ")[1];
-                String session = line.split(" ")[2];
+            while (scan.hasNext()) {
+                String line = scan.nextLine();
+                String code = line.split("\\t")[0];
+                String name = line.split("\\t")[1];
+                String session = line.split("\\t")[2];
                 if (session.equals(arg)) {
                     courseList.add(new Course(code, name, session));
                 }
             }
-            System.out.println(courseList);
-            readCourses.close();
-            objectOutputStream.writeObject(courseList.toString());
+            scan.close();
+            objectOutputStream.writeObject(courseList);
             System.out.println("Liste de cours pour la session demandée a été envoyée");
         } catch (FileNotFoundException e) {
-            System.out.println("Lecture du fichier impossible");
+            throw new RuntimeException(e);
         } catch (IOException e) {
             System.out.println("Exportation dans le flux échouée");
         }

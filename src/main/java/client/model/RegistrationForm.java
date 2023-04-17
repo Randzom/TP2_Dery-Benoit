@@ -1,6 +1,6 @@
 package client.model;
 
-import client.model.Course;
+import server.models.Course;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ public class RegistrationForm implements Serializable {
     private String nom;
     private String email;
     private String matricule;
-    private client.model.Course course;
+    private Course course;
 
     public RegistrationForm(String prenom, String nom, String email, String matricule, Course course) {
         this.prenom = prenom;
@@ -51,7 +51,7 @@ public class RegistrationForm implements Serializable {
         this.matricule = matricule;
     }
 
-    public client.model.Course getCourse() {
+    public Course getCourse() {
         return course;
     }
 

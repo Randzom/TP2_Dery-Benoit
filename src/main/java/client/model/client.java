@@ -2,6 +2,7 @@ package client.model;
 
 import java.net.UnknownHostException;
 import java.util.Scanner;
+import server.models.Course;
 
 import java.io.*;
 import java.net.Socket;
@@ -24,15 +25,12 @@ public class Client {
         try{
             clientSocket = new Socket("127.0.0.1", 1337);
             System.out.println("Veuillez choisir la session pour laquelle vous voulez consulter la liste de cours (entrez le nombre correspondant au choix):");
-            System.out.println("1. Automne/n" +
-                    "2. Hiver/n" +
-                    "3. Ete/n");
+            System.out.println("1. Automne\\n" +
+                    "2. Hiver\\n" +
+                    "3. Ete\\n");
             Scanner scanner = new Scanner(System.in);
             System.out.print("Choix: ");
             String sessionChoisi = null;
-            OutputStreamWriter choiceA = new OutputStreamWriter(
-                    clientSocket.getOutputStream()
-            );
                 String line = scanner.nextLine();
                 switch (line) {
                     case "1" -> {
@@ -46,7 +44,6 @@ public class Client {
                     }
 
                 }
-            scanner.close();
                 String command = "CHARGER " + sessionChoisi;
                 System.out.println("Les cours offerts durant la session d'" + sessionChoisi + " sont:");
 
@@ -56,26 +53,24 @@ public class Client {
                 objectOutputStream.writeObject(command);
                 System.out.println("Requête de la liste de cours envoyé");
                 System.out.println(command);
-                ArrayList<Course> courseList = (ArrayList<Course>) objectInputStream.readObject();
+                //String receivedList = objectInputStream.readObject();
+                objectInputStream = new ObjectInputStream(clientSocket.getInputStream());
+                ArrayList<Course> courseList= (ArrayList<Course>) objectInputStream.readObject();
                 System.out.println("Cours reçu");
 
                 int count = 0;
                 while (courseList.size() > count) {
-                    Course tempCourse = courseList.get(count);
+                    Course tempCourse = (Course) courseList.get(count);
                     String code = tempCourse.getCode();
                     String name = tempCourse.getName();
                     int orderCount = count + 1;
-                    System.out.println(orderCount + "." + code + "/t" + name);
+                    System.out.println(orderCount + "." + code + "\\t" + name);
                     count++;
             }
-                System.out.println("Choix: /n" +
-                                    "1. Consulter les cours offerts pour une autre session /n" +
+                System.out.println("Choix: \\n" +
+                                    "1. Consulter les cours offerts pour une autre session \\n" +
                                     "2. Inscription à un cours");
-            Scanner scanner2 = new Scanner(System.in);
             System.out.print("Choix: ");
-            OutputStreamWriter choiceB = new OutputStreamWriter(
-                    clientSocket.getOutputStream()
-            );
                 String choiceLine = scanner.nextLine();
                 switch (choiceLine) {
                     case "1" -> {
@@ -84,8 +79,7 @@ public class Client {
                     case "2" -> {
                         envoyerInscription(courseList);
                     }
-                }
-            scanner2.close();
+                };
     } catch (UnknownHostException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -112,6 +106,7 @@ public static void envoyerInscription(ArrayList<Course> courseList) throws IOExc
     String code = inscriptionScanner.nextLine();
 
     ArrayList<Course> currentCourseList = courseList;
+
 
     boolean courseFound = false;
     int count = 0;
