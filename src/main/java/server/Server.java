@@ -180,20 +180,21 @@ public class Server {
         // TODO: implémenter cette méthode
         try {
             System.out.println("Inscription en cours");
-            String prenom = arg.split(".")[0];
-            String nom = arg.split(".")[1];
-            String email = arg.split(".")[2];
-            String matricule = arg.split(".")[3];
-            String courseName = arg.split(".")[4];
-            String code = arg.split(".")[5];
-            String session = arg.split(".")[6];
+            String prenom = arg.split("&")[0];
+            String nom = arg.split("&")[1];
+            String email = arg.split("&")[2];
+            String matricule = arg.split("&")[3];
+            String courseName = arg.split("&")[4];
+            String code = arg.split("&")[5];
+            String session = arg.split("&")[6];
+
 
             FileWriter registration = new FileWriter("server/data/inscription.txt");
             registration.write(session + " " + code + " " + matricule + "   " + prenom + " " + nom + " " + email);
             registration.close();
             System.out.println("Inscription enregistrée avec succès");
             String confirmation = "Inscription réussite";
-            //objectOutputStream.writeObject(confirmation);
+            objectOutputStream.writeObject(confirmation);
 
             // TODO: Il manque message de confirmation envoyé au client
             } catch (FileNotFoundException e) {

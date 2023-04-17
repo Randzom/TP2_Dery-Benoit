@@ -24,6 +24,7 @@ public class Client {
             System.out.println("Bienvenue au portail d'inscription de l'UDEM");
             while (disconnect == false) {
                 chargerListe();
+                clientSocket.close();
             }
             scanner.close();
             clientSocket.close();
@@ -100,9 +101,8 @@ public class Client {
             throw new RuntimeException(e);
         }
     }
-public static void envoyerInscription(ArrayList<Course> courseList) throws IOException {
+public static void envoyerInscription(ArrayList<Course> courseList) {
     try {
-        clientSocket = new Socket("127.0.0.1", 1337);
         System.out.print("Veuillez saisir votre prénom");
         String prenom = scanner.nextLine();
 
@@ -140,24 +140,33 @@ public static void envoyerInscription(ArrayList<Course> courseList) throws IOExc
         }
         if (courseFound == false) {
             System.out.println("Le cours sélectionné n'existe pas dans la liste précédemment chargée. Veuillez réessayer");
+
             chargerListe();
         }
         System.out.println("Boucle de recherche terminé");
         Course inscriptionCourse = new Course(tempName, code, tempSession);
 
 
-        String registrationString = prenom + "." + nom + "." + email + "." + matricule + "." + tempName + "." + code + "." + tempSession;
+        String registrationString = prenom + "&" + nom + "&" + email + "&" + matricule + "&" + tempName + "&" + code + "&" + tempSession;
         String command = "INSCRIRE " + registrationString;
         System.out.println("Envoie de la demmande d'inscription");
+        clientSocket = new Socket("127.0.0.1", 1337);
         objectOutputStream = new ObjectOutputStream(clientSocket.getOutputStream());
         objectOutputStream.writeObject(command);
         System.out.println("Rechargement de la liste");
+        objectInputStream = new ObjectInputStream(clientSocket.getInputStream());
+        String message = objectInputStream.readObject().toString();
+        System.out.println(message);
+
 
         //System.out.println(objectInputStream.readObject());
-    } finally {
-
-    }
-    ;
+    } catch (UnknownHostException e) {
+        throw new RuntimeException(e);
+    } catch (IOException e) {
+        throw new RuntimeException(e);
+    } catch (ClassNotFoundException e) {
+        throw new RuntimeException(e);
+    };
 }
 
     public static void main(String[] args) {
