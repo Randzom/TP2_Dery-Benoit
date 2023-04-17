@@ -2,7 +2,6 @@ package server;
 
 import javafx.util.Pair;
 import server.models.Course;
-import server.models.RegistrationForm;
 
 import java.io.*;
 import java.util.Scanner;
@@ -98,9 +97,7 @@ public class Server {
             String cmd = parts.getKey();
             String arg = parts.getValue();
             this.alertHandlers(cmd, arg);
-            System.out.println(cmd +" commande et " + arg + " argument");
         }
-        System.out.println("Received null");
     }
 
     /**
@@ -146,11 +143,8 @@ public class Server {
      @param arg la session pour laquelle on veut récupérer la liste des cours
      */
     public void handleLoadCourses(String arg) {
-        // TODO: implémenter cette méthode
         try {
-            System.out.println("Read");
             Scanner scan = new Scanner(new File("src/main/java/server/data/cours.txt"));
-            System.out.println("Success");
             ArrayList<Course> courseList = new ArrayList<Course>();
             while (scan.hasNext()) {
                 String line = scan.nextLine();
@@ -177,7 +171,6 @@ public class Server {
      La méthode gére les exceptions si une erreur se produit lors de la lecture de l'objet, l'écriture dans un fichier ou dans le flux de sortie.
      */
     public void handleRegistration(String arg) {
-        // TODO: implémenter cette méthode
         try {
             System.out.println("Inscription en cours");
             String prenom = arg.split("&")[0];
@@ -189,14 +182,16 @@ public class Server {
             String session = arg.split("&")[6];
 
 
-            FileWriter registration = new FileWriter("server/data/inscription.txt");
-            registration.write(session + " " + code + " " + matricule + "   " + prenom + " " + nom + " " + email);
+            FileWriter registration = new FileWriter("src/main/java/server/data/inscription.txt", true);
+            String newInscription = session + " " + code + " " + matricule + "   " + prenom + " " + nom + " " + email;
+            BufferedWriter buffRegistration = new BufferedWriter(registration);
+            buffRegistration.write(newInscription);
+            buffRegistration.close();
             registration.close();
             System.out.println("Inscription enregistrée avec succès");
             String confirmation = "Inscription réussite";
             objectOutputStream.writeObject(confirmation);
 
-            // TODO: Il manque message de confirmation envoyé au client
             } catch (FileNotFoundException e) {
                 System.out.println("Impossible d'écrire dans le fichier (inscription.txt)");
             } catch (IOException e) {

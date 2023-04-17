@@ -57,16 +57,11 @@ public class Client {
                 String command = "CHARGER " + sessionChoisi;
                 System.out.println("Les cours offerts durant la session d'" + sessionChoisi + " sont:");
 
-                System.out.println("Ouverture Outputput");
                 objectOutputStream = new ObjectOutputStream(clientSocket.getOutputStream());
-                System.out.println("Écriture");
                 objectOutputStream.writeObject(command);
-                System.out.println("Requête de la liste de cours envoyé");
                 System.out.println(command);
-                //String receivedList = objectInputStream.readObject();
                 objectInputStream = new ObjectInputStream(clientSocket.getInputStream());
                 ArrayList<Course> courseList= (ArrayList<Course>) objectInputStream.readObject();
-                System.out.println("Cours reçu");
 
                 int count = 0;
                 while (courseList.size() > count) {
@@ -77,10 +72,11 @@ public class Client {
                     System.out.println(orderCount + "." + code + " \t " + name);
                     count++;
             }
-                System.out.println("Choix:");
+                System.out.println("Veuillez entrer le numéro correspondant à l'action ciblé");
             System.out.println("1. Consulter les cours offerts pour une autre session");
             System.out.println("2. Inscription à un cours");
             System.out.println("3. Déconnecter");
+            System.out.println("Choix: ");
 
                 String choiceLine = scanner.nextLine();
                 switch (choiceLine) {
@@ -103,19 +99,19 @@ public class Client {
     }
 public static void envoyerInscription(ArrayList<Course> courseList) {
     try {
-        System.out.print("Veuillez saisir votre prénom");
+        System.out.print("Veuillez saisir votre prénom: ");
         String prenom = scanner.nextLine();
 
-        System.out.print("Veuillez saisir votre nom");
+        System.out.print("Veuillez saisir votre nom: ");
         String nom = scanner.nextLine();
 
-        System.out.print("Veuillez saisir votre email");
+        System.out.print("Veuillez saisir votre email: ");
         String email = scanner.nextLine();
 
-        System.out.print("Veuillez saisir votre matricule");
+        System.out.print("Veuillez saisir votre matricule: ");
         String matricule = scanner.nextLine();
 
-        System.out.print("Veuillez saisir le code du cours");
+        System.out.print("Veuillez saisir le code du cours: ");
         String code = scanner.nextLine();
 
         ArrayList<Course> currentCourseList = courseList;
@@ -129,9 +125,7 @@ public static void envoyerInscription(ArrayList<Course> courseList) {
 
             Course tempCourse = currentCourseList.get(count);
             String tempCode = tempCourse.getCode().toString();
-            System.out.println(tempCourse + " et " + tempCode + " égal " + code);
             if (tempCode.equals(code)) {
-                System.out.println("Trouvé");
                 courseFound = true;
                 tempName = tempCourse.getName().toString();
                 tempSession = tempCourse.getSession().toString();
@@ -143,17 +137,12 @@ public static void envoyerInscription(ArrayList<Course> courseList) {
 
             chargerListe();
         }
-        System.out.println("Boucle de recherche terminé");
-        Course inscriptionCourse = new Course(tempName, code, tempSession);
-
 
         String registrationString = prenom + "&" + nom + "&" + email + "&" + matricule + "&" + tempName + "&" + code + "&" + tempSession;
         String command = "INSCRIRE " + registrationString;
-        System.out.println("Envoie de la demmande d'inscription");
         clientSocket = new Socket("127.0.0.1", 1337);
         objectOutputStream = new ObjectOutputStream(clientSocket.getOutputStream());
         objectOutputStream.writeObject(command);
-        System.out.println("Rechargement de la liste");
         objectInputStream = new ObjectInputStream(clientSocket.getInputStream());
         String message = objectInputStream.readObject().toString();
         System.out.println(message);
