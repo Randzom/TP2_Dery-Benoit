@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f84a99aa-efb4-4265-b543-889ba30c78a9" name="Changes" comment="Javadoc classe Server à moitié">
+    <list default="true" id="21724437-db3b-48fb-8dd8-4dcb75189f2e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/model/client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/model/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,117 +41,76 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Xavier Benoit/.jdks/openjdk-19.0.1/lib",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rober/Downloads/projet_JacobDery_XavierBenoit&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="client.model" />
     </key>
   </component>
+  <component name="RunManager" selected="Application.Client">
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.model.Client" />
+      <module name="TP2_Dery-Benoit" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server.ServerLauncher" />
+      <module name="TP2_Dery-Benoit" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.ServerLauncher" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f84a99aa-efb4-4265-b543-889ba30c78a9" name="Changes" comment="" />
+      <changelist id="21724437-db3b-48fb-8dd8-4dcb75189f2e" name="Changes" comment="" />
       <created>1680977331454</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1680977331454</updated>
     </task>
-    <task id="LOCAL-00001" summary="Javadoc EventHandler">
-      <created>1681691745740</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1681691745740</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Javadoc EventHandler">
-      <created>1681691814991</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1681691814991</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Javadoc méthode processCommandLine">
-      <created>1681692399513</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1681692399513</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Javadoc méthodes disconnect et handleEvents">
-      <created>1681693130797</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1681693130797</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Javadoc méthode listen + fix disconnect">
-      <created>1681694572348</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1681694572348</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Javadoc méthode listen + fix disconnect">
-      <created>1681694655586</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1681694655586</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Javadoc classe Course au propre">
-      <created>1681697155449</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1681697155450</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Javadoc classe ServerLauncher et EventHandler au propre">
-      <created>1681699242808</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1681699242808</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Javadoc classe registrationForm au propre">
-      <created>1681700884311</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1681700884311</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Javadoc classe Server à moitié">
-      <created>1681705789759</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1681705789759</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Javadoc EventHandler" />
-    <MESSAGE value="Javadoc méthode processCommandLine" />
-    <MESSAGE value="Javadoc méthodes disconnect et handleEvents" />
-    <MESSAGE value="Javadoc méthode listen + fix disconnect" />
-    <MESSAGE value="Javadoc classe Course au propre" />
-    <MESSAGE value="Javadoc classe ServerLauncher et EventHandler au propre" />
-    <MESSAGE value="Javadoc classe registrationForm au propre" />
-    <MESSAGE value="Javadoc classe Server à moitié" />
-    <option name="LAST_COMMIT_MESSAGE" value="Javadoc classe Server à moitié" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.net.BindException" package="java.net" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

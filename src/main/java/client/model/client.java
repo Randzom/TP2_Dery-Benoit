@@ -10,17 +10,17 @@ import java.util.ArrayList;
 
 public class Client {
 
-    private Socket clientSocket;
+    private static Socket clientSocket;
 
-    private ObjectInputStream objectInputStream;
-    private ObjectOutputStream objectOutputStream;
+    private static ObjectInputStream objectInputStream;
+    private static ObjectOutputStream objectOutputStream;
 
-    public void client() {
+    public static void client() {
         System.out.println("Bienvenue au portail d'inscription de l'UDEM");
         chargerListe();
 
     }
-    public void chargerListe(){
+    public static void chargerListe(){
         try{
             clientSocket = new Socket("127.0.0.1", 1337);
             System.out.println("Veuillez choisir la session pour laquelle vous voulez consulter la liste de cours (entrez le nombre correspondant au choix):");
@@ -33,7 +33,6 @@ public class Client {
             OutputStreamWriter choiceA = new OutputStreamWriter(
                     clientSocket.getOutputStream()
             );
-            while (scanner.hasNext()) {
                 String line = scanner.nextLine();
                 switch (line) {
                     case "1" -> {
@@ -47,16 +46,18 @@ public class Client {
                     }
 
                 }
-            }
             scanner.close();
                 CommandObject command= new CommandObject("CHARGER", sessionChoisi);
-                System.out.println("Les cours offerts durant la session d'" + sessionChoisi + "sont:");
+                System.out.println("Les cours offerts durant la session d'" + sessionChoisi + " sont:");
 
-                objectInputStream = new ObjectInputStream(clientSocket.getInputStream());
+                System.out.println("Ouverture Outputput");
                 objectOutputStream = new ObjectOutputStream(clientSocket.getOutputStream());
+                System.out.println("Écriture");
                 objectOutputStream.writeObject(command);
+                System.out.println("Requête de la liste de cours envoyé");
 
                 ArrayList<Course> courseList = (ArrayList<Course>) objectInputStream.readObject();
+                System.out.println("Cours reçu");
 
                 int count = 0;
                 while (courseList.size() > count) {
@@ -75,9 +76,8 @@ public class Client {
             OutputStreamWriter choiceB = new OutputStreamWriter(
                     clientSocket.getOutputStream()
             );
-            while (scanner2.hasNext()) {
-                String line = scanner.nextLine();
-                switch (line) {
+                String choiceLine = scanner.nextLine();
+                switch (choiceLine) {
                     case "1" -> {
                         chargerListe();
                     }
@@ -85,7 +85,6 @@ public class Client {
                         envoyerInscription(courseList);
                     }
                 }
-            }
             scanner2.close();
     } catch (UnknownHostException e) {
             throw new RuntimeException(e);
@@ -95,7 +94,7 @@ public class Client {
             throw new RuntimeException(e);
         }
     }
-public void envoyerInscription(ArrayList<Course> courseList) throws IOException {
+public static void envoyerInscription(ArrayList<Course> courseList) throws IOException {
     Scanner inscriptionScanner = new Scanner (System.in);
     System.out.print("Veuillez saisir votre prénom");
     String prenom = inscriptionScanner.nextLine();
@@ -141,9 +140,12 @@ public void envoyerInscription(ArrayList<Course> courseList) throws IOException 
 
     objectOutputStream.writeObject(inscriptionCommand);
 
-
-
     inscriptionScanner.close();
 
+    chargerListe();
+    }
+
+    public static void main(String[] args) {
+        client();
     }
 }

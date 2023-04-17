@@ -3,9 +3,7 @@ package server.models;
 import java.io.Serializable;
 
 /**
- * Formulaire d'inscription d'un étudiant à un cours, avec son prénom et nom de famille, son
- * adresse courriel et son matricule. Un étudiant peut s'inscrire à un cours avec ce
- * formulaire via le serveur.
+ * Formulaire d'inscription d'un étudiant à un cours, avec son nom complet, son adresse courriel et son matricule.
  */
 public class RegistrationForm implements Serializable {
     private String prenom;
@@ -15,7 +13,7 @@ public class RegistrationForm implements Serializable {
     private Course course;
 
     /**
-     * un constructeur de la classe <code>RegistrationForm</code>
+     * l'unique constructeur de la classe <code>RegistrationForm</code>
      *
      * @param prenom la <code>String</code> du prénom de l'étudiant
      * @param nom la <code>String</code> du nom de famille de l'étudiant
@@ -32,7 +30,7 @@ public class RegistrationForm implements Serializable {
     }
 
     /**
-     * Getter du prénom de l'étudiant.
+     * Retourne le prénom de l'étudiant.
      *
      * @return la <code>String</code> du prénom de l'étudiant
      */
@@ -41,7 +39,7 @@ public class RegistrationForm implements Serializable {
     }
 
     /**
-     * Setter du prénom de l'étudiant.
+     * Remplace le prénom de l'étudiant par celui entré en paramètre.
      *
      * @param prenom la <code>String</code> du nouveau prénom de l'étudiant
      */
@@ -50,7 +48,7 @@ public class RegistrationForm implements Serializable {
     }
 
     /**
-     * Getter du nom de l'étudiant.
+     * Retourne le nom de l'étudiant.
      *
      * @return la <code>String</code> du nom de l'étudiant
      */
@@ -59,7 +57,7 @@ public class RegistrationForm implements Serializable {
     }
 
     /**
-     * Setter du nom de l'étudiant.
+     * Remplace le nom de l'étudiant par celui entré en paramètre.
      *
      * @param nom la <code>String</code> du nouveau nom de l'étudiant
      */
@@ -68,7 +66,7 @@ public class RegistrationForm implements Serializable {
     }
 
     /**
-     * Getter de l'adresse courriel de l'étudiant.
+     * Retourne l'adresse courriel de l'étudiant.
      *
      * @return la <code>String</code> de l'adresse courriel de l'étudiant
      */
@@ -77,7 +75,7 @@ public class RegistrationForm implements Serializable {
     }
 
     /**
-     * Setter de l'adresse courriel de l'étudiant.
+     * Remplace l'adresse courriel de l'étudiant par celle entrée en paramètre.
      *
      * @param email la <code>String</code> de la nouvelle adresse courriel de l'étudiant
      */
@@ -86,7 +84,7 @@ public class RegistrationForm implements Serializable {
     }
 
     /**
-     * Getter du matricule de l'étudiant.
+     * Retourne le matricule de l'étudiant.
      *
      * @return la <code>String</code> du matricule de l'étudiant
      */
@@ -95,7 +93,7 @@ public class RegistrationForm implements Serializable {
     }
 
     /**
-     * Setter du matricule de l'étudiant.
+     * Remplace le matricule de l'étudiant par celui entré en paramètre.
      *
      * @param matricule la <code>String</code> du nouveau matricule de l'étudiant
      */
@@ -104,7 +102,7 @@ public class RegistrationForm implements Serializable {
     }
 
     /**
-     * Getter du cours auquel l'étudiant s'inscrit.
+     * Retourne le cours auquel l'étudiant s'inscrit.
      *
      * @return le <code>Course</code> auquel l'étudiant s'inscrit
      * @see Course
@@ -114,7 +112,7 @@ public class RegistrationForm implements Serializable {
     }
 
     /**
-     * Setter du cours auquel l'étudiant s'inscrit.
+     * Remplace le cours auquel l'étudiant s'inscrit par celui entré en paramètre.
      *
      * @param course le nouveau <code>Course</code> auquel l'étudiant s'inscrit
      */
@@ -123,11 +121,9 @@ public class RegistrationForm implements Serializable {
     }
 
     /**
-     * Retourne une <code>String</code> avec le nom de la classe et le contenu
-     * de chacun des champs de cette classe.
+     * Retourne une <code>String</code> avec le nom de la classe et le contenu de chacun des champs.
      *
-     * @return une <code>String</code> avec le nom de la classe et le contenu de
-     * chacun des champs de cette classe
+     * @return une <code>String</code> avec le nom de la classe et le contenu de chacun des champs
      */
     @Override
     public String toString() {
