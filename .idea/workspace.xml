@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="TP2_Dery-Benoit:jar" />
+      <artifact name="TP2_Dery-Benoit:jar_client" />
+      <artifact name="TP2_Dery-Benoit:jar_server" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -10,12 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21724437-db3b-48fb-8dd8-4dcb75189f2e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/model/CommandObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/model/EventHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/model/InscriptionStreamObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/model/RegistrationForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TP2_Dery_Benoit_jar_client/TP2_Dery-Benoit.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TP2_Dery_Benoit_jar_client/TP2_Dery-Benoit.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TP2_Dery_Benoit_jar_server/TP2_Dery-Benoit.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TP2_Dery_Benoit_jar_server/TP2_Dery-Benoit.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
