@@ -1,3 +1,4 @@
 Manifest-Version: 1.0
-Main-Class: client.model.Client
+Main-Class: testJavaFX/src/main/java/com/example/testjavafx/ClientFXVue.
+ java
 

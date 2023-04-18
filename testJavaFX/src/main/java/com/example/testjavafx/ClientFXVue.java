@@ -123,5 +123,8 @@ public class ClientFXVue extends Application {
 
         return result;
     }
-
 }
+    public static void main(String[] args) {
+
+        ClientFXVue.start();
+    }

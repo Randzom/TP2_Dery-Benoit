@@ -160,6 +160,7 @@ public static void envoyerInscription(ArrayList<Course> courseList) {
 }
 
     public static void main(String[] args) {
-        client();
+
+    }
     }
 }
